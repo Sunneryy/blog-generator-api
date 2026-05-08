@@ -1,0 +1,14 @@
+[project]
+name = "outskill-main"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "crewai-tools>=1.14.4",
+    "crewai[google-genai]>=1.14.4",
+    "exa-py>=2.12.1",
+    "fastapi>=0.136.1",
+    "python-multipart>=0.0.27",
+    "uvicorn>=0.46.0",
+]
