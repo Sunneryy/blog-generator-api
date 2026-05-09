@@ -26,11 +26,16 @@ def health_check():
     return {"status": "running", "message": "SEO Blog Generator API is live"}
 
 @app.post("/generate")
-@app.post("/generate")
 async def generate_blog(request: BlogRequest):
     try:
         import sys
-        sys.path.insert(0, r"C:\Users\sunda\Desktop\Basic test AI Agent\Test 1-main\agents\intermediate\v1")
+        import os
+        
+        # Works both locally and on Railway
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        agents_path = os.path.join(base_dir, "agents", "intermediate", "v1")
+        if agents_path not in sys.path:
+            sys.path.insert(0, agents_path)
 
         from agents import keyword_researcher, blog_writer, seo_optimizer
         from tasks import research_task, writing_task, optimization_task
